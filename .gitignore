@@ -1,5 +1,7 @@
 # Manually Added Ignores
 codesigndoc_exports/*
+.expo
+.expo/*
 
 # ***** GENERATED IGNORES *****
 
