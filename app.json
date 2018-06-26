@@ -1,5 +1,7 @@
 {
   "expo": {
+    "name": "Instagram Clone",
+    "slug": "insta-clone",
     "sdkVersion": "27.0.0"
   }
 }
