@@ -21,6 +21,10 @@ export default class Card extends Component {
     loading: true
   };
 
+  shouldComponentUpdate(nextProps) {
+    return this.props.linkText !== nextProps.linkText;
+  }
+
   handleLoad = () => {
     this.setState({ loading: false });
   };
