@@ -26,6 +26,18 @@ export default class App extends Component {
     });
   };
 
+  onSubmitComment = text => {
+    const { selectedItemId, commentsForItem } = this.state;
+    const comments = commentsForItem[selectedItemId] || [];
+
+    const updated = {
+      ...commentsForItem,
+      [selectedItemId]: [...comments, text]
+    };
+
+    this.setState({ commentsForItem: updated });
+  };
+
   render() {
     const { commentsForItem, showModal, selectedItemId } = this.state;
 
@@ -45,6 +57,7 @@ export default class App extends Component {
             style={styles.container}
             comments={commentsForItem[selectedItemId] || []}
             onClose={this.closeCommentScreen}
+            onSubmitComment={this.onSubmitComment}
           />
         </Modal>
       </View>
