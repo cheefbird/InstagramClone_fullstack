@@ -3,9 +3,23 @@ import { StyleSheet, Text, View } from "react-native";
 import { Constants } from "expo";
 
 // import AuthorRow from "./src/components/AuthorRow";
-import Card from "./src/components/Card";
+import CardList from "./src/components/CardList";
+
+const items = [
+  { id: 0, author: "Bob Ross" },
+  { id: 1, author: "Chuck Norris" }
+];
 
 export default class App extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <CardList items={items} />
+      </View>
+    );
+  }
+
+  /*
   render() {
     return (
       <View style={styles.container}>
@@ -20,6 +34,7 @@ export default class App extends React.Component {
       </View>
     );
   }
+  */
 }
 
 const styles = StyleSheet.create({
