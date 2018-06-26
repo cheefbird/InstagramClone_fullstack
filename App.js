@@ -1,46 +1,37 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { Component } from "react";
+import { StyleSheet, Platform, View } from "react-native";
 import { Constants } from "expo";
 
-// import AuthorRow from "./src/components/AuthorRow";
-import CardList from "./src/components/CardList";
+import Feed from "./src/screens/Feed";
 
 const items = [
   { id: 0, author: "Bob Ross" },
   { id: 1, author: "Chuck Norris" }
 ];
 
-export default class App extends React.Component {
+export default class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <CardList items={items} />
+        <Feed style={styles.feed} />
       </View>
     );
   }
-
-  /*
-  render() {
-    return (
-      <View style={styles.container}>
-        <Card
-          fullName={"First Last"}
-          linkText={"Comments"}
-          onPressLinkText={() => {
-            console.log("LINK PRESSED!!!!!");
-          }}
-          image={{ uri: "https://unsplash.it/600/600" }}
-        />
-      </View>
-    );
-  }
-  */
 }
+
+const platformVersion =
+  Platform.OS === "ios" ? parseInt(Platform.Version, 10) : Platform.Version;
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: Constants.statusBarHeight,
     flex: 1,
     backgroundColor: "#fff"
+  },
+  feed: {
+    flex: 1,
+    marginTop:
+      Platform.OS === "android" || platformVersion < 11
+        ? Constants.statusBarHeight
+        : 0
   }
 });
