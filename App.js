@@ -2,13 +2,19 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Constants } from "expo";
 
-import Avatar from "./src/components/Avatar";
+import AuthorRow from "./src/components/AuthorRow";
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Avatar initials={"FL"} size={35} backgroundColor={"teal"} />
+        <AuthorRow
+          fullName={"First Last"}
+          linkText={"Comments"}
+          onPressLinkText={() => {
+            console.log("LINK PRESSED!!!!!");
+          }}
+        />
       </View>
     );
   }
